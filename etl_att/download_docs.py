@@ -20,7 +20,7 @@ if not os.path.exists(DIRETORIO_DOWNLOAD):
 
 # Configura o WebDriver (exemplo com Chrome)
 # Substitua o caminho abaixo pelo local onde você extraiu o chromedriver
-servico = Service('chromedriver.exe')  # Use barras / ou duplas barras \\
+servico = Service('driver\chromedriver.exe')  # Use barras / ou duplas barras \\
 options = webdriver.ChromeOptions()
 
 # Configurações para download automático
