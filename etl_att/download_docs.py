@@ -10,6 +10,8 @@ import os
 import time
 import urllib.parse
 
+
+"""Codigo Usado para baixar todos os pdfs do Sebrae"""
 # Configurações
 URL_ALVO = 'https://datasebrae.com.br/fichas-tecnicas-sebraetec/'  # Substitua pela URL real
 DIRETORIO_DOWNLOAD = 'downloads_pdfs'  # Diretório onde os PDFs serão salvos

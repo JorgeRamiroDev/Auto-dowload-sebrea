@@ -2,6 +2,9 @@ import os
 import PyPDF2
 import pandas as pd
 
+
+
+"""ETL FEITO NOS DADOS DE TEXTOS"""
 def processar_pasta_pdfs(caminho_pasta, caminho_csv):
     # Verifica se o diretório existe
     if not os.path.isdir(caminho_pasta):
@@ -32,7 +35,6 @@ def processar_pasta_pdfs(caminho_pasta, caminho_csv):
                 leitor_pdf = PyPDF2.PdfReader(arquivo_pdf)
                 texto_total = ""
 
-                # Itera por todas as páginas do PDF e extrai o texto
                 for num_pagina, pagina in enumerate(leitor_pdf.pages, start=1):
                     texto = pagina.extract_text()
                     if texto:
@@ -40,11 +42,14 @@ def processar_pasta_pdfs(caminho_pasta, caminho_csv):
                     else:
                         texto_total += f"[Sem texto extraível na página {num_pagina}]\n"
 
+            # Adiciona o nome do documento no início do texto
+            texto_total = f"nome do documento: {nome_documento}\n{texto_total.strip()}"
+
             # Adiciona os dados ao conjunto
             dados.append({
                 'id': id_atual,
                 'nome_documento': nome_documento,
-                'txt': texto_total.strip()
+                'txt': texto_total
             })
             print(f"Arquivo '{arquivo}' processado com sucesso.\n")
             id_atual += 1

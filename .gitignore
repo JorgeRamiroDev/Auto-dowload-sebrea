@@ -1,3 +1,6 @@
 venv
 downloads_pdfs
 *.csv
+.env
+env
+

@@ -12,7 +12,7 @@ def preprocess_text(text):
     return text.lower()
 
 # 3. Calcular similaridade e recomendar fichas
-def recommend_fichas(user_input, fichas_df, top_n=3):
+def recommend_fichas(user_input, fichas_df, top_n=1):
     # Pré-processar os textos
     fichas_df['txt_processed'] = fichas_df['txt'].apply(preprocess_text)
     user_input_processed = preprocess_text(user_input)
@@ -31,3 +31,7 @@ def recommend_fichas(user_input, fichas_df, top_n=3):
     recommended_fichas = fichas_df.sort_values(by='similarity', ascending=False).head(top_n)
 
     return recommended_fichas[['id', 'nome_documento', 'similarity']]
+
+
+
+"""Modelo usado na primeira tentativa de usar um modelo de similaridade"""
